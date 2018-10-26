@@ -1,0 +1,18 @@
+2018-10-22 11:01:30  [ main:0 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:10:58  [ main:0 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:13:24  [ main:0 ] - [ INFO ]  Locator: %sBy.name: email
+2018-10-22 11:13:24  [ main:2 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:13:44  [ main:0 ] - [ INFO ]  Locator: %s
+2018-10-22 11:13:44  [ main:2 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:13:57  [ main:0 ] - [ INFO ]  Locator: %s
+2018-10-22 11:13:57  [ main:1 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:15:17  [ main:0 ] - [ INFO ]  Locator: %s
+2018-10-22 11:15:17  [ main:2 ] - [ DEBUG ]  adfasfad%s,%d 
+2018-10-22 11:15:17  [ main:2 ] - [ DEBUG ]  Locator: asfasdf
+2018-10-22 11:17:52  [ main:0 ] - [ INFO ]  Locator: 
+2018-10-22 11:18:11  [ main:0 ] - [ INFO ]  Locator: 
+2018-10-22 11:18:11  [ main:1 ] - [ INFO ]  Locator: 
+2018-10-22 11:20:20  [ main:0 ] - [ INFO ]  Locator: By.name: email
+2018-10-22 11:20:20  [ main:2 ] - [ INFO ]  Locator: adfad
+2018-10-22 16:45:28  [ main:0 ] - [ INFO ]  Locator: By.name: email
+2018-10-22 17:59:27  [ main:0 ] - [ INFO ]  Locator: By.name: email
