@@ -8,9 +8,13 @@
  */    
 package com.vento.at.demo.util.web;
 
+import java.lang.invoke.MethodHandles;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vento.at.demo.util.ElementUtil;
 
@@ -24,26 +28,26 @@ import com.vento.at.demo.util.ElementUtil;
  * @version  
  * @since JDK 1.8 
  */
-public class BasePage {
-	public WebDriver driver;
-	public BasePage(WebDriver driver){
-		this.driver = driver;
-	}
+public class BasePage extends BaseBrowser {
 
-	/** 
-	 * Creates a new instance of BasePage. 
-	 *  
-	 */
-	public BasePage() {
-		// TODO Auto-generated constructor stub
+	//static Logger logger = Logger.getLogger(BasePage.class);
+
+	public BasePage(WebDriver driver){
+		super(driver);
 	}
 
 	public WebElement getElementByKey(String key) {
 		//WebElement element = driver.findElement(by);
-		By byLocator = ElementUtil.getLocator(this, key);
-		System.out.println("Locator:" + byLocator.toString());
+
+		By byLocator = ElementUtil.getLocator(this.getClass().getPackage().getName(), this.getClass().getName(), key);
+		logger.info("Locator: {}", byLocator.toString());
 		return null;
-		
 	}
+	
+	public WebDriver getDriver() {
+		this.getSnapshots();
+		return this.driver;
+	}
+	
 }
  

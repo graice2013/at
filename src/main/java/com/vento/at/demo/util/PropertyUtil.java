@@ -35,10 +35,11 @@ public class PropertyUtil {
 	private Properties propertiesObj;
 	private String filePathStr;
 
-	/**
-	 * Creates a new instance of PropertyUtil.
+	/** 
+	 * Creates a new instance of PropertyUtil. 
+	 * .通过文件路径，初始化PropertyUtil
 	 * 
-	 * @param filePathStr
+	 * @param filePathStr 文件路径
 	 */
 	public PropertyUtil(String filePathStr) {
 		super();
@@ -81,8 +82,8 @@ public class PropertyUtil {
 	 * getPropertyByKey:(通过关键字获取配置文件中文本内容). <br/>
 	 * 
 	 * @author Toly
-	 * @param key
-	 * @return
+	 * @param key 关键字
+	 * @return 返回配置文件中关键字对应值，如未找到，返回null
 	 * @since JDK 1.8
 	 */
 	public String getPropertyByKey(String key) {
