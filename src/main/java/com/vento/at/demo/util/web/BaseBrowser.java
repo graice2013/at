@@ -8,6 +8,12 @@
  */    
 package com.vento.at.demo.util.web;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
 
 /** 
@@ -32,10 +38,60 @@ public class BaseBrowser extends BaseDriver {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	public void getSnapshots( ) {
-		
+	public void accessURL(String url) {
+		driver.get(url);
 	}
-
+	
+	public void accessURLWithNewWindow(String url) {
+		((JavascriptExecutor) driver).executeScript("window.open('" + url + "')");
+	}
+	
+	public String getPageURL() {
+		return driver.getCurrentUrl();
+	}
+	
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+	
+	public String getCurrentWindow() {
+		return driver.getWindowHandle();
+	}
+	
+	protected List<String> getWindows() {
+		Set<String> winHandles = driver.getWindowHandles();
+		List<String> handles = new ArrayList<String>(winHandles);
+		return handles;
+	}
+	
+	public void switchWindow(String windowName) {
+		driver.switchTo().window(windowName);
+	}
+	
+	public boolean switchWindowByTitle(String titleName) {
+		boolean flag = false;
+		String currentHandle = this.getCurrentWindow();
+		try {
+			List<String> handles = this.getWindows();
+			for (String handle : handles) {
+				this.switchWindow(handle);
+				if (this.getPageTitle().equals(titleName)) {
+					flag = true;
+					logger.debug("切换window[{}]成功。", titleName);
+					break;
+				} else {
+					continue;
+				}
+			}
+		} catch(NoSuchWindowException e) {
+			logger.info("Window:[{}]没有找到", titleName, e.fillInStackTrace());
+			flag = false;
+		}
+		
+		if (!flag) {
+			this.switchWindow(currentHandle);
+		}
+		return flag;
+	}
 }
  
